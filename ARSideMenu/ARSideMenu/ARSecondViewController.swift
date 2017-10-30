@@ -25,12 +25,7 @@ class ARSecondViewController: UIViewController {
     func leftBarButtonTapped(){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if (appDelegate.sideMenuContainerViewController?.isSideMenuOpen)! {
-            appDelegate.sideMenuContainerViewController?.closeSideMenu()
-        }
-        else {
-            appDelegate.sideMenuContainerViewController?.openSideMenu()
-        }
+        appDelegate.sideMenuContainerViewController?.toggleSideMenu()
     }
 
     /*

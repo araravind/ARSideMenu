@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let leftViewController = storyBoard.instantiateViewController(withIdentifier: "leftMenuVC") as? ARLeftMenuViewController
         sideMenuContainerViewController?.centralViewController = centralViewConroller
         sideMenuContainerViewController?.leftViewController = leftViewController
+        sideMenuContainerViewController?.sideMenuAnimationType = .slideandScaleDown
         window?.rootViewController = sideMenuContainerViewController
     }
 
