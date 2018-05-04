@@ -22,7 +22,7 @@ class ARSecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func leftBarButtonTapped(){
+    @objc func leftBarButtonTapped(){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.sideMenuContainerViewController?.toggleSideMenu()
