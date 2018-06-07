@@ -17,7 +17,8 @@ class ARSideMenuContainerViewController: UIViewController, UIGestureRecognizerDe
     
     internal var shadowView:UIView?
     internal var centralContainerView:UIView?
-    internal var leftContainerView:UIView?
+    internal var rightContainerView:UIView?
+    
     var centralViewController:UIViewController? {
         
         willSet {
@@ -32,27 +33,28 @@ class ARSideMenuContainerViewController: UIViewController, UIGestureRecognizerDe
             initCentralViewController()
         }
     }
-    var leftViewController:UIViewController? {
+    var rightViewController:UIViewController? {
         
         willSet {
-            leftViewController?.willMove(toParentViewController: nil)
-            leftContainerView?.subviews.forEach({$0.removeFromSuperview()})
-            leftViewController?.removeFromParentViewController()
-            leftViewController?.didMove(toParentViewController: nil)
+            rightViewController?.willMove(toParentViewController: nil)
+            rightContainerView?.subviews.forEach({$0.removeFromSuperview()})
+            rightViewController?.removeFromParentViewController()
+            rightViewController?.didMove(toParentViewController: nil)
         }
         
         didSet {
             initLeftViewController()
         }
     }
-    var leftContainerWidth:CGFloat = 230
+    var rightContainerWidth:CGFloat = 230
     private var isSideMenuOpen:Bool = false
     private var centralTapGuesture:UITapGestureRecognizer?
     private var shouldOpenSideMenu:Bool = true
     var sideMenuAnimationType:sideMenuAnimations = .slideAlong
-    convenience init(leftController:UIViewController, centerController:UIViewController) {
+    
+    convenience init(rightController:UIViewController, centerController:UIViewController) {
         self.init()
-        self.leftViewController = leftController
+        self.rightViewController = rightController
         self.centralViewController = centerController
     }
     
@@ -64,11 +66,11 @@ class ARSideMenuContainerViewController: UIViewController, UIGestureRecognizerDe
         
         self.centralContainerView = UIView(frame: self.view.bounds)
         self.shadowView = UIView(frame: self.view.bounds)
-        self.leftContainerView = UIView(frame: self.view.bounds)
+        self.rightContainerView = UIView(frame: self.view.bounds)
         
         self.shadowView?.backgroundColor = UIColor.clear
         self.centralContainerView?.backgroundColor = UIColor.white
-        self.leftContainerView?.backgroundColor = UIColor.white
+        self.rightContainerView?.backgroundColor = UIColor.white
         
         shadowView?.layer.shadowColor = UIColor.gray.cgColor
         shadowView?.layer.shadowOffset = CGSize(width: -5, height: 5)
@@ -77,7 +79,7 @@ class ARSideMenuContainerViewController: UIViewController, UIGestureRecognizerDe
         shadowView?.layer.masksToBounds = false
         
         shadowView?.addSubview(self.centralContainerView!)
-        self.view.addSubview(self.leftContainerView!)
+        self.view.addSubview(self.rightContainerView!)
         self.view.addSubview(self.shadowView!)
         
         //        let centralContainerRightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(centralContainerRightSwipeHandler))
@@ -129,14 +131,14 @@ class ARSideMenuContainerViewController: UIViewController, UIGestureRecognizerDe
     
     internal func initLeftViewController(){
         
-        guard let leftViewController = leftViewController, let leftContainerView = leftContainerView  else {
+        guard let rightViewController = rightViewController, let rightContainerView = rightContainerView  else {
             return
         }
         
-        leftViewController.willMove(toParentViewController: self)
-        leftViewController.view.frame = leftContainerView.bounds
+        rightViewController.willMove(toParentViewController: self)
+        rightViewController.view.frame = rightContainerView.bounds
         //        leftContainerView.addSubview(leftViewController.view)
-        addChildViewController(leftViewController)
+        addChildViewController(rightViewController)
         //        leftViewController .didMove(toParentViewController: self)
         
         
@@ -175,23 +177,23 @@ class ARSideMenuContainerViewController: UIViewController, UIGestureRecognizerDe
     
     func showSideMenu(){
         
-        guard let shadowView = shadowView, let centralContainerView = centralContainerView, let leftContainerView = leftContainerView, let leftViewController = leftViewController else {
+        guard let shadowView = shadowView, let centralContainerView = centralContainerView, let rightContainerView = rightContainerView, let rightViewController = rightViewController else {
             return
         }
         
-        leftViewController.willMove(toParentViewController: self)
-        leftViewController.view.frame = leftContainerView.bounds
-        leftContainerView.addSubview(leftViewController.view)
-        addChildViewController(leftViewController)
+        rightViewController.willMove(toParentViewController: self)
+        rightViewController.view.frame = rightContainerView.bounds
+        rightContainerView.addSubview(rightViewController.view)
+        addChildViewController(rightViewController)
         
-        if let navController  = leftViewController as? UINavigationController {
+        if let navController  = rightViewController as? UINavigationController {
             navController.visibleViewController?.view.isUserInteractionEnabled = true
         }
         
         if sideMenuAnimationType == .slideAlong {
             
             UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn, animations: {
-                centralContainerView.frame = CGRect(x: self.leftContainerWidth, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+                centralContainerView.frame = CGRect(x: -self.rightContainerWidth, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
                 
             }) { (finished) in
                 if finished {
@@ -207,7 +209,7 @@ class ARSideMenuContainerViewController: UIViewController, UIGestureRecognizerDe
                 
                 let scale:CGFloat = 0.8
                 
-                let transX =  self.leftContainerWidth
+                let transX = -self.rightContainerWidth
                 let transY  = (self.view.bounds.size.height - (shadowView.bounds.size.height)) / 2
                 
                 shadowView.transform = CGAffineTransform(scaleX: scale, y: scale).concatenating(CGAffineTransform(translationX: transX, y: transY))
@@ -221,7 +223,7 @@ class ARSideMenuContainerViewController: UIViewController, UIGestureRecognizerDe
                     self.isSideMenuOpen = true
                     self.centralViewController?.view.isUserInteractionEnabled = false
                     centralContainerView.addGestureRecognizer(self.centralTapGuesture!)
-                    leftViewController.didMove(toParentViewController: self)
+                    rightViewController.didMove(toParentViewController: self)
                 }
             }
 
@@ -232,7 +234,7 @@ class ARSideMenuContainerViewController: UIViewController, UIGestureRecognizerDe
     
     func closeSideMenu(){
         
-        self.leftViewController?.willMove(toParentViewController: nil)
+        self.rightViewController?.willMove(toParentViewController: nil)
         
         if sideMenuAnimationType == .slideAlong {
             
@@ -259,9 +261,9 @@ class ARSideMenuContainerViewController: UIViewController, UIGestureRecognizerDe
                     self.centralContainerView?.removeGestureRecognizer(self.centralTapGuesture!)
                     self.centralContainerView?.layer.cornerRadius = 0.0
                     
-                    self.leftViewController!.view.removeFromSuperview()
-                    self.leftViewController?.removeFromParentViewController()
-                    self.leftViewController? .didMove(toParentViewController: nil)
+                    self.rightViewController!.view.removeFromSuperview()
+                    self.rightViewController?.removeFromParentViewController()
+                    self.rightViewController? .didMove(toParentViewController: nil)
                 }
             }
         }

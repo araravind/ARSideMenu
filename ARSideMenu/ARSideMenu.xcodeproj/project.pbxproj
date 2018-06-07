@@ -13,7 +13,7 @@
 		F21F31D11F2232AC0033968B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F21F31D01F2232AC0033968B /* Assets.xcassets */; };
 		F21F31D41F2232AC0033968B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21F31D21F2232AC0033968B /* LaunchScreen.storyboard */; };
 		F21F31DF1F2233360033968B /* ARSideMenuContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F31DE1F2233360033968B /* ARSideMenuContainerViewController.swift */; };
-		F21F31E11F2234900033968B /* ARLeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F31E01F2234900033968B /* ARLeftMenuViewController.swift */; };
+		F21F31E11F2234900033968B /* ARRightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F31E01F2234900033968B /* ARRightMenuViewController.swift */; };
 		F21F31FE1F224C5F0033968B /* ARSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F31FD1F224C5F0033968B /* ARSecondViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		F21F31D31F2232AC0033968B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F21F31D51F2232AC0033968B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F21F31DE1F2233360033968B /* ARSideMenuContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSideMenuContainerViewController.swift; sourceTree = "<group>"; };
-		F21F31E01F2234900033968B /* ARLeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARLeftMenuViewController.swift; sourceTree = "<group>"; };
+		F21F31E01F2234900033968B /* ARRightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARRightMenuViewController.swift; sourceTree = "<group>"; };
 		F21F31FD1F224C5F0033968B /* ARSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +64,7 @@
 				F21F31FD1F224C5F0033968B /* ARSecondViewController.swift */,
 				F21F31C91F2232AC0033968B /* AppDelegate.swift */,
 				F21F31CB1F2232AC0033968B /* ARCentralViewController.swift */,
-				F21F31E01F2234900033968B /* ARLeftMenuViewController.swift */,
+				F21F31E01F2234900033968B /* ARRightMenuViewController.swift */,
 				F21F31CD1F2232AC0033968B /* Main.storyboard */,
 				F21F31D01F2232AC0033968B /* Assets.xcassets */,
 				F21F31D21F2232AC0033968B /* LaunchScreen.storyboard */,
@@ -151,7 +151,7 @@
 				F21F31CC1F2232AC0033968B /* ARCentralViewController.swift in Sources */,
 				F21F31FE1F224C5F0033968B /* ARSecondViewController.swift in Sources */,
 				F21F31CA1F2232AC0033968B /* AppDelegate.swift in Sources */,
-				F21F31E11F2234900033968B /* ARLeftMenuViewController.swift in Sources */,
+				F21F31E11F2234900033968B /* ARRightMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

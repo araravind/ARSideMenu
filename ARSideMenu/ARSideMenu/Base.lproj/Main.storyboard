@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Left Menu View Controller-->
+        <!--Right Menu View Controller-->
         <scene sceneID="nDi-gc-mdl">
             <objects>
-                <viewController storyboardIdentifier="leftMenuVC" id="O2U-Ep-bcC" customClass="ARLeftMenuViewController" customModule="ARSideMenu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leftMenuVC" id="O2U-Ep-bcC" customClass="ARRightMenuViewController" customModule="ARSideMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3dV-mo-Hbu"/>
                         <viewControllerLayoutGuide type="bottom" id="nDO-h3-I7X"/>
@@ -22,14 +22,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-ca-Ah5">
-                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <rect key="frame" x="145" y="70" width="230" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="3jc-9h-Qmq"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="leftMenuTableViewCell" id="w5B-ML-vsC">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="230" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w5B-ML-vsC" id="V6Q-fQ-Fp4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="230" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -44,7 +47,6 @@
                         <constraints>
                             <constraint firstItem="sZM-ca-Ah5" firstAttribute="top" secondItem="3dV-mo-Hbu" secondAttribute="bottom" constant="50" id="1gA-zC-IZd"/>
                             <constraint firstAttribute="trailing" secondItem="sZM-ca-Ah5" secondAttribute="trailing" id="3j6-9n-Jru"/>
-                            <constraint firstItem="sZM-ca-Ah5" firstAttribute="leading" secondItem="PnI-zu-WzV" secondAttribute="leading" id="Ayq-oI-GN4"/>
                             <constraint firstItem="nDO-h3-I7X" firstAttribute="top" secondItem="sZM-ca-Ah5" secondAttribute="bottom" id="Mzv-b8-j3P"/>
                         </constraints>
                     </view>
@@ -98,7 +100,7 @@
             <objects>
                 <navigationController storyboardIdentifier="centralNavigationVC" id="xVA-GV-08b" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wba-rM-zVO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14509803921568626" green="0.4823529411764706" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
@@ -134,7 +136,7 @@
             <objects>
                 <navigationController storyboardIdentifier="secondNavigationVC" id="kdu-He-9Kl" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dJI-WA-Uqf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1450980392" green="0.4823529412" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>

@@ -1,5 +1,5 @@
 //
-//  ARLeftMenuViewController.swift
+//  ARRightMenuViewController.swift
 //  ARSideMenu
 //
 //  Created by Aravind A R on 21/07/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ARLeftMenuViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class ARRightMenuViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var menuTableView: UITableView!
 
     override func viewDidLoad() {

@@ -12,8 +12,8 @@ class ARCentralViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        let leftBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "menuIcon"), style: .plain, target: self, action: #selector(leftBarButtonTapped))
-        navigationItem.leftBarButtonItem = leftBarButton
+        let rightBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "menuIcon"), style: .plain, target: self, action: #selector(rightBarButtonTapped))
+        navigationItem.rightBarButtonItem = rightBarButton
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -22,7 +22,7 @@ class ARCentralViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @objc func leftBarButtonTapped(){
+    @objc func rightBarButtonTapped(){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.sideMenuContainerViewController?.toggleSideMenu()
